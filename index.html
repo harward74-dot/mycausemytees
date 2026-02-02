@@ -5,66 +5,230 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Cause My Tees | Wear the Cause. Fund the Mission.</title>
   <meta name="description" content="A fundraising apparel hub. Shop a campaign and support the mission with every purchase." />
+
   <style>
-    :root { --bg:#0b0b0c; --card:#121214; --text:#f6f6f7; --muted:#b8b8bf; --line:#232327; --btn:#ffffff; --btnText:#0b0b0c; }
+    :root{
+      /* Pulled from your logo */
+      --teal:#208090;
+      --magenta:#D02090;
+      --sky:#20B0F0;
+      --navy:#102050;
+      --green:#80C050;
+
+      /* Light + warm system */
+      --bg:#F7F8F6;
+      --bg2:#FFFFFF;
+      --text:#121318;
+      --muted:#5C6470;
+      --line:rgba(16,32,80,.12);
+
+      --card:#FFFFFF;
+      --shadow:0 10px 30px rgba(16,32,80,.08);
+
+      --btn:var(--teal);
+      --btnText:#FFFFFF;
+
+      --chipBg:rgba(32,128,144,.10);
+      --chipText:rgba(16,32,80,.85);
+    }
+
     *{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#0b0b0c 0%, #0f0f12 60%, #0b0b0c 100%);color:var(--text)}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 380px at 15% 0%, rgba(32,176,240,.18), transparent 60%),
+        radial-gradient(800px 360px at 85% 0%, rgba(208,32,144,.12), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 60%, #ffffff 100%);
+    }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;position:sticky;top:0;background:rgba(11,11,12,.75);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px 18px;z-index:10}
-    .brand{font-weight:800;letter-spacing:.2px}
+
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      position:sticky;top:0;z-index:10;
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+      padding:12px 18px;
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .brand img{
+      height:34px; width:auto; display:block;
+    }
+    .brand span{
+      font-size:16px;
+      color:var(--navy);
+    }
+
     .navlinks{display:flex;gap:16px;align-items:center;font-size:14px;color:var(--muted)}
-    .navlinks a:hover{color:var(--text)}
-    .cta{background:var(--btn);color:var(--btnText);padding:10px 14px;border-radius:10px;font-weight:700;font-size:14px}
-    .cta:hover{opacity:.9}
-    .hero{padding:48px 0 24px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}
-    .h1{font-size:44px;line-height:1.05;margin:0 0 12px;font-weight:900}
-    .sub{font-size:18px;color:var(--muted);margin:0 0 22px;max-width:520px}
+    .navlinks a:hover{color:var(--navy)}
+    .cta{
+      background:var(--btn);
+      color:var(--btnText);
+      padding:10px 14px;border-radius:12px;
+      font-weight:800;font-size:14px;
+      box-shadow:0 10px 20px rgba(32,128,144,.18);
+    }
+    .cta:hover{filter:brightness(.98)}
+
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px}
+
+    .hero{
+      padding:44px 0 18px;
+      display:grid;grid-template-columns:1.15fr .85fr;
+      gap:22px;align-items:center
+    }
+    .h1{
+      font-size:44px;line-height:1.05;margin:0 0 12px;font-weight:950;color:var(--navy)
+    }
+    .sub{
+      font-size:18px;color:var(--muted);margin:0 0 22px;max-width:560px
+    }
     .btnrow{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:800;border:1px solid var(--line)}
-    .btn.primary{background:var(--btn);color:var(--btnText);border-color:transparent}
-    .btn.primary:hover{opacity:.92}
-    .btn.secondary:hover{border-color:#3a3a42}
-    .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
-    .trust .pill{border:1px solid var(--line);background:rgba(18,18,20,.65);border-radius:14px;padding:12px}
-    .pill b{display:block;font-size:14px}
+    .btn{
+      display:inline-block;
+      padding:12px 16px;border-radius:14px;
+      font-weight:900;border:1px solid var(--line);
+      background:#fff;
+      box-shadow:0 8px 18px rgba(16,32,80,.06);
+    }
+    .btn.primary{
+      background:var(--btn);
+      color:var(--btnText);
+      border-color:transparent;
+      box-shadow:0 12px 22px rgba(32,128,144,.18);
+    }
+    .btn.primary:hover{filter:brightness(.98)}
+    .btn.secondary{
+      background:#fff;
+      color:var(--navy);
+    }
+    .btn.secondary:hover{border-color:rgba(16,32,80,.20)}
+
+    .trust{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:10px;margin-top:20px
+    }
+    .trust .pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.75);
+      border-radius:16px;padding:12px;
+      box-shadow:0 10px 20px rgba(16,32,80,.05);
+    }
+    .pill b{display:block;font-size:14px;color:var(--navy)}
     .pill span{color:var(--muted);font-size:12px}
-    .card{border:1px solid var(--line);background:rgba(18,18,20,.75);border-radius:18px;overflow:hidden}
+
+    .card{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.78);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
     .aside{padding:16px}
-    .aside h3{margin:0 0 8px}
+    .aside h3{margin:0 0 8px;color:var(--navy)}
     .aside p{margin:0;color:var(--muted);font-size:14px}
 
-    h2{font-size:22px;margin:0 0 12px}
-    .section{padding:28px 0}
+    h2{font-size:22px;margin:0 0 12px;color:var(--navy)}
+    .section{padding:26px 0}
+
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .campaign{border:1px solid var(--line);background:rgba(18,18,20,.75);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-    .thumb{height:140px;background:linear-gradient(135deg,#1f1f25,#0f0f12);display:flex;align-items:center;justify-content:center;color:#9d9dac;font-weight:800;letter-spacing:.6px}
+
+    .campaign{
+      border:1px solid var(--line);
+      background:var(--card);
+      border-radius:20px;
+      overflow:hidden;
+      display:flex;flex-direction:column;
+      box-shadow:0 10px 22px rgba(16,32,80,.06);
+      transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .campaign:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 28px rgba(16,32,80,.10);
+    }
+
+    .thumb{
+      height:140px;
+      background:
+        radial-gradient(520px 160px at 30% 20%, rgba(32,176,240,.30), transparent 60%),
+        radial-gradient(420px 160px at 80% 10%, rgba(208,32,144,.22), transparent 55%),
+        linear-gradient(135deg, rgba(16,32,80,.10), rgba(32,128,144,.10));
+      display:flex;align-items:center;justify-content:center;
+      color:rgba(16,32,80,.55);
+      font-weight:950;letter-spacing:.6px;
+    }
+
     .cbody{padding:14px;display:flex;flex-direction:column;gap:10px;flex:1}
-    .ctitle{font-weight:900}
+    .ctitle{font-weight:950;color:var(--navy)}
     .cdesc{color:var(--muted);font-size:14px;line-height:1.35}
+
     .tags{display:flex;gap:8px;flex-wrap:wrap}
-    .tag{font-size:12px;color:#d4d4db;border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
+    .tag{
+      font-size:12px;
+      color:var(--chipText);
+      border:1px solid rgba(32,128,144,.18);
+      padding:6px 10px;border-radius:999px;
+      background:var(--chipBg);
+    }
+
     .shop{margin-top:auto}
-    .shop a{display:block;text-align:center;background:var(--btn);color:var(--btnText);padding:11px 12px;border-radius:12px;font-weight:900}
-    .shop a:hover{opacity:.92}
+    .shop a{
+      display:block;text-align:center;
+      background:var(--btn);
+      color:var(--btnText);
+      padding:11px 12px;border-radius:14px;
+      font-weight:950;
+      box-shadow:0 12px 20px rgba(32,128,144,.16);
+    }
+    .shop a:hover{filter:brightness(.98)}
 
     .how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .how .step{padding:16px;border-radius:18px;border:1px solid var(--line);background:rgba(18,18,20,.75)}
-    .step b{display:block;margin-bottom:6px}
+    .how .step{
+      padding:16px;border-radius:20px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.78);
+      box-shadow:0 10px 20px rgba(16,32,80,.05);
+    }
+    .step b{display:block;margin-bottom:6px;color:var(--navy)}
     .step span{color:var(--muted);font-size:14px}
 
     .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    input, textarea{width:100%;padding:12px 12px;border-radius:12px;border:1px solid var(--line);background:#0d0d10;color:var(--text);font-size:14px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);font-size:14px;
+      box-shadow:0 8px 16px rgba(16,32,80,.04);
+    }
     textarea{min-height:110px;grid-column:1 / -1}
     .submit{grid-column:1 / -1}
-    .submit button{width:100%;padding:12px 14px;border-radius:12px;border:0;background:var(--btn);color:var(--btnText);font-weight:900;font-size:15px}
-    .submit button:hover{opacity:.92}
+    .submit button{
+      width:100%;
+      padding:12px 14px;border-radius:14px;border:0;
+      background:linear-gradient(90deg, var(--teal), rgba(32,176,240,.95));
+      color:#fff;font-weight:950;font-size:15px;
+      box-shadow:0 14px 22px rgba(32,128,144,.18);
+    }
+    .submit button:hover{filter:brightness(.98)}
     .note{color:var(--muted);font-size:12px;margin-top:8px}
 
-    .footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .footer{
+      border-top:1px solid var(--line);
+      padding:22px 0;color:var(--muted);
+      font-size:13px;
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap
+    }
 
     @media (max-width: 900px){
-      .hero{grid-template-columns:1fr; padding-top:26px}
+      .hero{grid-template-columns:1fr; padding-top:22px}
       .grid{grid-template-columns:repeat(2,1fr)}
       .trust{grid-template-columns:1fr}
       .how{grid-template-columns:1fr}
@@ -74,21 +238,28 @@
     @media (max-width: 520px){
       .grid{grid-template-columns:1fr}
       .navlinks{display:none}
+      .brand img{height:30px}
     }
   </style>
 </head>
+
 <body>
   <div class="nav">
-    <div class="brand">My Cause My Tees</div>
+    <a class="brand" href="#top" aria-label="My Cause My Tees home">
+      <img src="logo.png" alt="My Cause My Tees logo" />
+      <span>My Cause My Tees</span>
+    </a>
+
     <div class="navlinks">
       <a href="#campaigns">Campaigns</a>
       <a href="#how">How it Works</a>
       <a href="#start">Start a Fundraiser</a>
     </div>
+
     <a class="cta" href="#start">Start a Fundraiser</a>
   </div>
 
-  <div class="wrap">
+  <div class="wrap" id="top">
     <section class="hero">
       <div>
         <h1 class="h1">Wear the Cause.<br/>Fund the Mission.</h1>
