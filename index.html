@@ -2,39 +2,180 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My Cause My Tees</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Cause My Tees | Wear the Cause. Fund the Mission.</title>
+  <meta name="description" content="A fundraising apparel hub. Shop a campaign and support the mission with every purchase." />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fafafa;
-      margin: 0;
-      padding: 40px;
-      text-align: center;
+    :root { --bg:#0b0b0c; --card:#121214; --text:#f6f6f7; --muted:#b8b8bf; --line:#232327; --btn:#ffffff; --btnText:#0b0b0c; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#0b0b0c 0%, #0f0f12 60%, #0b0b0c 100%);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;position:sticky;top:0;background:rgba(11,11,12,.75);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px 18px;z-index:10}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .navlinks{display:flex;gap:16px;align-items:center;font-size:14px;color:var(--muted)}
+    .navlinks a:hover{color:var(--text)}
+    .cta{background:var(--btn);color:var(--btnText);padding:10px 14px;border-radius:10px;font-weight:700;font-size:14px}
+    .cta:hover{opacity:.9}
+    .hero{padding:48px 0 24px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}
+    .h1{font-size:44px;line-height:1.05;margin:0 0 12px;font-weight:900}
+    .sub{font-size:18px;color:var(--muted);margin:0 0 22px;max-width:520px}
+    .btnrow{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:800;border:1px solid var(--line)}
+    .btn.primary{background:var(--btn);color:var(--btnText);border-color:transparent}
+    .btn.primary:hover{opacity:.92}
+    .btn.secondary:hover{border-color:#3a3a42}
+    .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+    .trust .pill{border:1px solid var(--line);background:rgba(18,18,20,.65);border-radius:14px;padding:12px}
+    .pill b{display:block;font-size:14px}
+    .pill span{color:var(--muted);font-size:12px}
+    .card{border:1px solid var(--line);background:rgba(18,18,20,.75);border-radius:18px;overflow:hidden}
+    .aside{padding:16px}
+    .aside h3{margin:0 0 8px}
+    .aside p{margin:0;color:var(--muted);font-size:14px}
+
+    h2{font-size:22px;margin:0 0 12px}
+    .section{padding:28px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .campaign{border:1px solid var(--line);background:rgba(18,18,20,.75);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+    .thumb{height:140px;background:linear-gradient(135deg,#1f1f25,#0f0f12);display:flex;align-items:center;justify-content:center;color:#9d9dac;font-weight:800;letter-spacing:.6px}
+    .cbody{padding:14px;display:flex;flex-direction:column;gap:10px;flex:1}
+    .ctitle{font-weight:900}
+    .cdesc{color:var(--muted);font-size:14px;line-height:1.35}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;color:#d4d4db;border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
+    .shop{margin-top:auto}
+    .shop a{display:block;text-align:center;background:var(--btn);color:var(--btnText);padding:11px 12px;border-radius:12px;font-weight:900}
+    .shop a:hover{opacity:.92}
+
+    .how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .how .step{padding:16px;border-radius:18px;border:1px solid var(--line);background:rgba(18,18,20,.75)}
+    .step b{display:block;margin-bottom:6px}
+    .step span{color:var(--muted);font-size:14px}
+
+    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input, textarea{width:100%;padding:12px 12px;border-radius:12px;border:1px solid var(--line);background:#0d0d10;color:var(--text);font-size:14px}
+    textarea{min-height:110px;grid-column:1 / -1}
+    .submit{grid-column:1 / -1}
+    .submit button{width:100%;padding:12px 14px;border-radius:12px;border:0;background:var(--btn);color:var(--btnText);font-weight:900;font-size:15px}
+    .submit button:hover{opacity:.92}
+    .note{color:var(--muted);font-size:12px;margin-top:8px}
+
+    .footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; padding-top:26px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .trust{grid-template-columns:1fr}
+      .how{grid-template-columns:1fr}
+      .form{grid-template-columns:1fr}
+      .h1{font-size:38px}
     }
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 18px;
-      color: #555;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 24px;
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
+    @media (max-width: 520px){
+      .grid{grid-template-columns:1fr}
+      .navlinks{display:none}
     }
   </style>
 </head>
 <body>
-  <h1>My Cause My Tees</h1>
-  <p>Wear the Cause. Fund the Mission.</p>
-  <a class="btn" href="#">Browse Campaigns</a>
+  <div class="nav">
+    <div class="brand">My Cause My Tees</div>
+    <div class="navlinks">
+      <a href="#campaigns">Campaigns</a>
+      <a href="#how">How it Works</a>
+      <a href="#start">Start a Fundraiser</a>
+    </div>
+    <a class="cta" href="#start">Start a Fundraiser</a>
+  </div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <h1 class="h1">Wear the Cause.<br/>Fund the Mission.</h1>
+        <p class="sub">Shop a campaign below. Every purchase supports that cause — and gives supporters something real in return.</p>
+        <div class="btnrow">
+          <a class="btn primary" href="#campaigns">Browse Campaigns</a>
+          <a class="btn secondary" href="#start">Start a Fundraiser</a>
+        </div>
+
+        <div class="trust">
+          <div class="pill"><b>Fast setup</b><span>Launch a campaign quickly</span></div>
+          <div class="pill"><b>No upfront cost</b><span>Supporters fund through purchases</span></div>
+          <div class="pill"><b>Clear impact</b><span>Every order supports the mission</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="aside">
+          <h3>Featured Campaign</h3>
+          <p>Pin your current top fundraiser here for quick traffic.</p>
+          <div style="height:12px"></div>
+          <a class="btn primary" href="#campaigns">View campaigns</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="campaigns" class="section">
+      <h2>Active Campaigns</h2>
+      <div class="grid" id="campaignGrid"></div>
+      <p class="note">To add a campaign: edit the “campaigns” list in this file and commit. The site updates automatically.</p>
+    </section>
+
+    <section id="how" class="section">
+      <h2>How it Works</h2>
+      <div class="how">
+        <div class="step"><b>1) Choose a campaign</b><span>Find the cause you care about and click in.</span></div>
+        <div class="step"><b>2) Buy merch</b><span>Support with a purchase you’ll actually wear.</span></div>
+        <div class="step"><b>3) Funds support the mission</b><span>Each order contributes to that cause’s goal.</span></div>
+      </div>
+    </section>
+
+    <section id="start" class="section">
+      <h2>Start a Fundraiser</h2>
+      <div class="card" style="padding:16px">
+        <form class="form" onsubmit="event.preventDefault(); alert('Thanks! This form is a placeholder for now.');">
+          <input placeholder="Your name" required />
+          <input placeholder="Email" type="email" required />
+          <input placeholder="Organization / Cause" required />
+          <input placeholder="City / State (optional)" />
+          <textarea placeholder="Tell us what you’re fundraising for (goal, timeline, audience)"></textarea>
+          <div class="submit"><button type="submit">Request a Campaign</button></div>
+          <div class="note">We’ll respond within 1–2 business days.</div>
+        </form>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© <span id="y"></span> My Cause My Tees</div>
+      <div>Email: hello@mycausemytees.com (placeholder)</div>
+    </div>
+  </div>
+
+  <script>
+    // ✅ EDIT THIS LIST to add or update campaigns
+    const campaigns = [
+      { name: "Campaign One", desc: "Short description of the mission and who it helps.", tags: ["Community"], url: "https://example.com/store1" },
+      { name: "Campaign Two", desc: "Support the program through apparel purchases.", tags: ["Youth Sports"], url: "https://example.com/store2" },
+      { name: "Campaign Three", desc: "Help fund scholarships, gear, or operational needs.", tags: ["Schools"], url: "https://example.com/store3" },
+      { name: "Campaign Four", desc: "Fundraising campaign benefiting a local organization.", tags: ["Nonprofit"], url: "https://example.com/store4" },
+      { name: "Campaign Five", desc: "Merch that funds the mission — every order matters.", tags: ["Health"], url: "https://example.com/store5" },
+      { name: "Campaign Six", desc: "Support animals, shelters, or rescue services.", tags: ["Animals"], url: "https://example.com/store6" }
+    ];
+
+    const grid = document.getElementById("campaignGrid");
+    grid.innerHTML = campaigns.map(c => `
+      <div class="campaign">
+        <div class="thumb">THUMBNAIL</div>
+        <div class="cbody">
+          <div class="ctitle">${c.name}</div>
+          <div class="cdesc">${c.desc}</div>
+          <div class="tags">${c.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+          <div class="shop"><a href="${c.url}" target="_blank" rel="noopener noreferrer">Shop Now</a></div>
+        </div>
+      </div>
+    `).join("");
+
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
