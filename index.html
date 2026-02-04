@@ -58,19 +58,11 @@
       font-weight:900;
       letter-spacing:.2px;
     }
-  .brand img{
-  height: 56px !important;
-  width: auto !important;
-  display: block;
-  max-height: none !important;
-}
-
-}
-
-    }
-    .brand span{
-      font-size:16px;
-      color:var(--navy);
+    .brand img{
+      height:56px;
+      width:auto;
+      display:block;
+      max-height:none;
     }
 
     .navlinks{display:flex;gap:16px;align-items:center;font-size:14px;color:var(--muted)}
@@ -245,21 +237,16 @@
     @media (max-width: 520px){
       .grid{grid-template-columns:1fr}
       .navlinks{display:none}
-    .brand img{
-  height: 44px !important;
-}
-
-
+      .brand img{height:44px}
     }
   </style>
 </head>
 
 <body>
   <div class="nav">
-   <a class="brand" href="#top" aria-label="My Cause My Tees home">
-  <img src="logo.png" alt="My Cause My Tees logo" />
-</a>
-
+    <a class="brand" href="#top" aria-label="My Cause My Tees home">
+      <img src="logo.png" alt="My Cause My Tees logo" />
+    </a>
 
     <div class="navlinks">
       <a href="#campaigns">Campaigns</a>
@@ -275,9 +262,16 @@
       <div>
         <h1 class="h1">Wear the Cause.<br/>Fund the Mission.</h1>
         <p class="sub">Shop a campaign below. Every purchase supports that cause — and gives supporters something real in return.</p>
+
         <div class="btnrow">
           <a class="btn primary" href="#campaigns">Browse Campaigns</a>
           <a class="btn secondary" href="#start">Start a Fundraiser</a>
+          <a class="btn secondary"
+             href="https://mycausemytees-riseupacademy.itemorder.com/shop/home/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Shop Rise Up Academy
+          </a>
         </div>
 
         <div class="trust">
@@ -290,9 +284,14 @@
       <div class="card">
         <div class="aside">
           <h3>Featured Campaign</h3>
-          <p>Pin your current top fundraiser here for quick traffic.</p>
+          <p>Rise Up Academy is live now — click below to shop and support.</p>
           <div style="height:12px"></div>
-          <a class="btn primary" href="#campaigns">View campaigns</a>
+          <a class="btn primary"
+             href="https://mycausemytees-riseupacademy.itemorder.com/shop/home/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Shop Rise Up Academy
+          </a>
         </div>
       </div>
     </section>
@@ -334,15 +333,14 @@
   </div>
 
   <script>
-const campaigns = [
-  {
-    name: "Rise Up Academy",
-    desc: "Support Rise Up Academy—every purchase helps fund programs and opportunities.",
-    tags: ["Youth", "Education"],
-    url: "https://mycausemytees-riseupacademy.itemorder.com/shop/home/"
-  },
-];
-
+    // ✅ EDIT THIS LIST to add or update campaigns
+    const campaigns = [
+      {
+        name: "Rise Up Academy",
+        desc: "Support Rise Up Academy—every purchase helps fund programs and opportunities.",
+        tags: ["Youth", "Education"],
+        url: "https://mycausemytees-riseupacademy.itemorder.com/shop/home/"
+      }
     ];
 
     const grid = document.getElementById("campaignGrid");
